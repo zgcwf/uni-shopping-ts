@@ -25,7 +25,7 @@ export type GoodsItem = {
   /** 商品描述 */
   desc: string
   /** 商品折扣 */
-  discount: number
+  discount?: number
   /** id */
   id: string
   /** 商品名称 */
@@ -35,5 +35,5 @@ export type GoodsItem = {
   /** 商品图片 */
   picture: string
   /** 商品价格 */
-  price: number
+  price: string
 }
