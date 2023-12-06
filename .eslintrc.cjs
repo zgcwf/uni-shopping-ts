@@ -8,7 +8,7 @@ module.exports = {
     'plugin:vue/vue3-essential', // Vue.js 3.x项目的基本规则。
     'eslint:recommended', // ESLint官方推荐的规则。
     '@vue/eslint-config-typescript', // Vue.js项目中使用TypeScript的规则。
-    '@vue/eslint-config-prettier',// 与Prettier代码格式化工具一起使用的规则。
+    '@vue/eslint-config-prettier', // 与Prettier代码格式化工具一起使用的规则。
   ],
   // 小程序全局变量
   globals: { //指定全局变量，这些变量可以在代码中直接使用而不需要声明。
@@ -29,7 +29,7 @@ module.exports = {
   },
   rules: { //指定自定义的规则，这里列出了一些自定义规则的配置。
     'prettier/prettier': [ //使用Prettier的规则进行代码格式化，包括使用单引号、省略分号、限制一行的最大字符数、使用逗号结尾等。
-      'warn',// 表示如果代码与这些配置不符合，ESLint将发出警告。具体的配置包括：
+      'warn', // 表示如果代码与这些配置不符合，ESLint将发出警告。具体的配置包括：
       {
         singleQuote: true, // 使用单引号而不是双引号。
         semi: false, //不使用分号结尾。
