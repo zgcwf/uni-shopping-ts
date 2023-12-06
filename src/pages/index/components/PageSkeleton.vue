@@ -117,7 +117,7 @@
 <script setup lang="ts"></script>
 
 <style lang="scss">
-// H5 与 APP 默认开启scoped，导致骨架屏基础样式无法生效，所以在骨架屏组件中手动导入
+// H5 与 APP 默认开启scoped，导致骨架屏基础样式无法生效，所以在骨架屏组件中手动导入样式
 /* #ifdef H5 || APP-PLUS */
 @import '@/components/styles/XtxSwiper.scss';
 @import './styles/HotPanel.scss';
