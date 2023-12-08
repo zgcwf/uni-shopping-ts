@@ -2,8 +2,15 @@
   <view class="viewport">
     <!-- 自定义头部导航栏 -->
     <CustomNavBar />
-    <scroll-view class="scroll-view" scroll-y enable-back-to-top refresher-enabled @refresherrefresh="onRefresherrefresh"
-      :refresher-triggered="isTriggered" @scrolltolower="onScrolltolower">
+    <scroll-view
+      class="scroll-view"
+      scroll-y
+      enable-back-to-top
+      refresher-enabled
+      @refresherrefresh="onRefresherrefresh"
+      :refresher-triggered="isTriggered"
+      @scrolltolower="onScrolltolower"
+    >
       <!-- 骨架屏 -->
       <PageSkeleton v-if="loading" />
       <template v-else>
@@ -21,71 +28,71 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { onLoad } from '@dcloudio/uni-app'
+import { ref } from "vue";
+import { onLoad } from "@dcloudio/uni-app";
 
-import CustomNavBar from './components/CustomNavBar.vue'
-import CategoryPanel from './components/CategoryPanel.vue'
-import HotPanel from './components/HotPanel.vue'
-import PageSkeleton from './components/PageSkeleton.vue'
+import CustomNavBar from "./components/CustomNavBar.vue";
+import CategoryPanel from "./components/CategoryPanel.vue";
+import HotPanel from "./components/HotPanel.vue";
+import PageSkeleton from "./components/PageSkeleton.vue";
 
-import { getHomeBannerAPI, getHomeCategoryAPI, getHomeHotAPI } from '@/services/home'
-import type { BannerItem, CategoryItem, HotItem } from '@/types/home'
-import type { XtxGuessInstance } from '@/types/components'
+import { getHomeBannerAPI, getHomeCategoryAPI, getHomeHotAPI } from "@/services/home";
+import type { BannerItem, CategoryItem, HotItem } from "@/types/home";
+import type { XtxGuessInstance } from "@/types/components";
 
 // 获取轮播图数据
-const bannerList = ref<BannerItem[]>([])
+const bannerList = ref<BannerItem[]>([]);
 const getHomeBannerData = async () => {
-  const res = await getHomeBannerAPI()
-  bannerList.value = res.result
-}
+  const res = await getHomeBannerAPI();
+  bannerList.value = res.result;
+};
 
 // 获取前台分类数据
-const categoryList = ref<CategoryItem[]>([])
+const categoryList = ref<CategoryItem[]>([]);
 const getHomeCategoryData = async () => {
-  const res = await getHomeCategoryAPI()
-  categoryList.value = res.result
-}
+  const res = await getHomeCategoryAPI();
+  categoryList.value = res.result;
+};
 
 // 获取热门推荐数据
-const hotList = ref<HotItem[]>([])
+const hotList = ref<HotItem[]>([]);
 const getHomeHotData = async () => {
-  const res = await getHomeHotAPI()
-  hotList.value = res.result
-}
+  const res = await getHomeHotAPI();
+  hotList.value = res.result;
+};
 
 // 上拉加载
-const guessRef = ref<XtxGuessInstance>()
+const guessRef = ref<XtxGuessInstance>();
 // 滚动触底事件
 const onScrolltolower = () => {
-  guessRef.value?.getMore()
-}
+  guessRef.value?.getMore();
+};
 
 // 下拉刷新
-const isTriggered = ref(false)
+const isTriggered = ref(false);
 // 自定义下拉刷新被触发
 const onRefresherrefresh = async () => {
   // 开始动画
-  isTriggered.value = true
+  isTriggered.value = true;
   // 重置猜你喜欢数据
-  guessRef.value?.reset()
-  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData(), guessRef.value?.getMore()])
+  guessRef.value?.reset();
+  await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData(), guessRef.value?.getMore()]);
   // 关闭动画
-  isTriggered.value = false
-}
+  isTriggered.value = false;
+};
 
 // 页面加载
-const loading = ref(false)
+const loading = ref(false);
 onLoad(async () => {
-  loading.value = true
+  loading.value = true;
   try {
-    await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()])
+    await Promise.all([getHomeBannerData(), getHomeCategoryData(), getHomeHotData()]);
   } catch (error) {
-    console.log('error', error)
+    console.log("error", error);
   } finally {
-    loading.value = false
+    loading.value = false;
   }
-})
+});
 </script>
 
 <style lang="scss">

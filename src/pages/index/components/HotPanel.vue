@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { HotItem } from '@/types/home'
+import type { HotItem } from "@/types/home";
 
 // 定义 props 接收数据
 defineProps<{
-  list: HotItem[]
-}>()
+  list: HotItem[];
+}>();
 </script>
 
 <template>
@@ -23,5 +23,5 @@ defineProps<{
 </template>
 
 <style lang="scss">
-@import './styles/HotPanel.scss';
+@import "./styles/HotPanel.scss";
 </style>

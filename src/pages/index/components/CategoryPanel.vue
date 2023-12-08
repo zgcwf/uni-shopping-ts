@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { CategoryItem } from '@/types/home'
+import type { CategoryItem } from "@/types/home";
 
 // 定义 props 接收数据
 defineProps<{
-  list: CategoryItem[]
-}>()
+  list: CategoryItem[];
+}>();
 </script>
 
 <template>
@@ -17,5 +17,5 @@ defineProps<{
 </template>
 
 <style lang="scss">
-@import './styles/CategoryPanel.scss';
+@import "./styles/CategoryPanel.scss";
 </style>

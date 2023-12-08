@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 获取屏幕边界到安全区域距离 top, left, right, bottom
-const { safeAreaInsets } = uni.getSystemInfoSync()
+const { safeAreaInsets } = uni.getSystemInfoSync();
 // console.log('safeAreaInsets', safeAreaInsets)
 </script>
 
