@@ -115,6 +115,14 @@
           "style": {
             "navigationBarTitleText": "配置"
           }
+        },
+        {
+          "path": "profile/profile",
+          "style": {
+            "navigationStyle": "custom",
+            "navigationBarTextStyle": "white",
+            "navigationBarTitleText": "个人信息"
+          }
         }
       ]
     }
