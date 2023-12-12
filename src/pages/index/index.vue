@@ -35,6 +35,7 @@ import CustomNavBar from "./components/CustomNavBar.vue";
 import CategoryPanel from "./components/CategoryPanel.vue";
 import HotPanel from "./components/HotPanel.vue";
 import PageSkeleton from "./components/PageSkeleton.vue";
+import { useGuessList } from "@/composables";
 
 import { getHomeBannerAPI, getHomeCategoryAPI, getHomeHotAPI } from "@/services/home";
 import type { BannerItem, CategoryItem, HotItem } from "@/types/home";
@@ -61,12 +62,14 @@ const getHomeHotData = async () => {
   hotList.value = res.result;
 };
 
-// 上拉加载
-const guessRef = ref<XtxGuessInstance>();
-// 滚动触底事件
-const onScrolltolower = () => {
-  guessRef.value?.getMore();
-};
+// 上拉加载--猜你喜欢hooks函数调用
+const { guessRef, onScrolltolower } = useGuessList();
+
+// const guessRef = ref<XtxGuessInstance>();
+// // 滚动触底事件
+// const onScrolltolower = () => {
+//   guessRef.value?.getMore();
+// };
 
 // 下拉刷新
 const isTriggered = ref(false);

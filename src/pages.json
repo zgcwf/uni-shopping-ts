@@ -1,12 +1,11 @@
 {
   "pages": [
     {
-    	"path" : "pages/login/login",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/login/login",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     },
     {
       "path": "pages/index/index",
@@ -44,12 +43,11 @@
       }
     },
     {
-    	"path" : "pages/goods/goods",
-    	"style" : 
-    	{
-    		"navigationBarTitleText" : "",
-    		"enablePullDownRefresh" : false
-    	}
+      "path": "pages/goods/goods",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
     }
   ],
   "globalStyle": {
@@ -102,5 +100,28 @@
         "selectedIconPath": "static/tabs/user_selected.png"
       }
     ]
+  },
+  // 分包加载规则
+  "subPackages": [
+    {
+      // 子包的根目录
+      "root": "pagesMember",
+      // 页面路径和窗口表现
+      "pages": [
+        {
+          "path": "settings/settings",
+          "style": {
+            "navigationBarTitleText": "配置"
+          }
+        }
+      ]
+    }
+  ],
+  // 分包预下载规则 (当用户进入【mine】页面时，由框架自动预下载【pagesMember】的分包，提升进入后续分包页面时的启动速度)
+  "preloadRule": {
+    "pages/mine/mine": {
+      "network": "all",
+      "packages": ["pagesMember"]
+    }
   }
 }
