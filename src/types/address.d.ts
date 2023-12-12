@@ -1,25 +1,25 @@
 /** 添加收货地址: 请求参数 */
 export type AddressParams = {
   /** 收货人姓名 */
-  receiver: string
+  receiver: string;
   /** 联系方式 */
-  contact: string
+  contact: string;
   /** 省份编码 */
-  provinceCode: string
+  provinceCode: string;
   /** 城市编码 */
-  cityCode: string
+  cityCode: string;
   /** 区/县编码 */
-  countyCode: string
+  countyCode: string;
   /** 详细地址 */
-  address: string
+  address: string;
   /** 默认地址，1为是，0为否 */
-  isDefault: number
-}
+  isDefault: number;
+};
 
 /** 收货地址项 */
 export type AddressItem = AddressParams & {
   /** 收货地址 id */
-  id: string
+  id: string;
   /** 省市区 */
-  fullLocation: string
-}
+  fullLocation: string;
+};

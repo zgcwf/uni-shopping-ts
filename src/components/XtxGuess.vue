@@ -1,66 +1,66 @@
 <script setup lang="ts">
-import { getHomeGoodsGuessLikeAPI } from '@/services/home'
-import type { PageParams } from '@/types/global'
-import type { GuessItem } from '@/types/home'
-import { onMounted, ref } from 'vue'
+import { getHomeGoodsGuessLikeAPI } from "@/services/home";
+import type { PageParams } from "@/types/global";
+import type { GuessItem } from "@/types/home";
+import { onMounted, ref } from "vue";
 
 // 分页参数
 const pageParams: Required<PageParams> = {
   page: 1,
   pageSize: 10,
-}
+};
 // 猜你喜欢的列表
-const guessList = ref<GuessItem[]>([])
+const guessList = ref<GuessItem[]>([]);
 // 已结束标记
-const finish = ref(false)
-const loading = ref(false)
+const finish = ref(false);
+const loading = ref(false);
 // 获取猜你喜欢数据
 const getHomeGoodsGuessLikeData = async () => {
   try {
     // 退出分页判断
     if (finish.value === true) {
-      return uni.showToast({ icon: 'none', title: '没有更多数据~' })
+      return uni.showToast({ icon: "none", title: "没有更多数据~" });
     }
 
     // 节流
-    if (loading.value) return
-    loading.value = true
+    if (loading.value) return;
+    loading.value = true;
 
     // uni.showLoading({ title: '加载中...', mask: true })
-    const res = await getHomeGoodsGuessLikeAPI(pageParams)
+    const res = await getHomeGoodsGuessLikeAPI(pageParams);
 
     // 数组追加
-    guessList.value.push(...res.result.items)
+    guessList.value.push(...res.result.items);
     // 分页条件
     if (pageParams.page < res.result.pages) {
       // 页码累加
-      pageParams.page++
+      pageParams.page++;
     } else {
-      finish.value = true
+      finish.value = true;
     }
   } catch (error) {
-    console.log('error', error)
+    console.log("error", error);
   } finally {
-    loading.value = false
+    loading.value = false;
     // uni.hideLoading()
   }
-}
+};
 // 重置数据
 const reset = () => {
-  pageParams.page = 1
-  guessList.value = []
-  finish.value = false
-  loading.value = false
-}
+  pageParams.page = 1;
+  guessList.value = [];
+  finish.value = false;
+  loading.value = false;
+};
 // 组件挂载完毕
 onMounted(() => {
-  getHomeGoodsGuessLikeData()
-})
+  getHomeGoodsGuessLikeData();
+});
 // 暴露方法
 defineExpose({
   reset,
   getMore: getHomeGoodsGuessLikeData,
-})
+});
 </script>
 
 <template>
@@ -79,7 +79,7 @@ defineExpose({
     </navigator>
   </view>
   <view class="loading-text">
-    {{ finish ? '没有更多数据了~' : '正在加载...' }}
+    {{ finish ? "没有更多数据了~" : "正在加载..." }}
   </view>
 </template>
 
@@ -105,7 +105,7 @@ defineExpose({
 
     &::before,
     &::after {
-      content: '';
+      content: "";
       width: 20rpx;
       height: 20rpx;
       background-image: url(@/static/images/bubble.png);

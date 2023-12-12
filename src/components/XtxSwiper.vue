@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import type { BannerItem } from '@/types/home'
-import { ref } from 'vue'
+import type { BannerItem } from "@/types/home";
+import { ref } from "vue";
 
 // 定义 props 接收
 defineProps<{
-  list: BannerItem[]
-}>()
+  list: BannerItem[];
+}>();
 
-const activeIndex = ref(0)
+const activeIndex = ref(0);
 
 // 当 swiper 下标发生变化时触发
 const onChange: UniHelper.SwiperOnChange = (ev) => {
   // ! 非空断言，主观上排除掉空值(null, undefined)情况
-  activeIndex.value = ev.detail!.current
-}
+  activeIndex.value = ev.detail!.current;
+};
 </script>
 
 <template>
@@ -33,5 +33,5 @@ const onChange: UniHelper.SwiperOnChange = (ev) => {
 </template>
 
 <style lang="scss">
-@import '@/components/styles/XtxSwiper.scss';
+@import "@/components/styles/XtxSwiper.scss";
 </style>

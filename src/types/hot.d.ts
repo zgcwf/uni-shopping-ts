@@ -1,23 +1,23 @@
-import type { PageResult, GoodsItem } from './global'
+import type { PageResult, GoodsItem } from "./global";
 
 /** 热门推荐-子类选项 */
 export type SubTypeItem = {
   /** 子类id */
-  id: string
+  id: string;
   /** 子类标题 */
-  title: string
+  title: string;
   /** 子类对应的商品集合 */
-  goodsItems: PageResult<GoodsItem>
-}
+  goodsItems: PageResult<GoodsItem>;
+};
 
 /** 热门推荐 */
 export type HotResult = {
   /** id信息 */
-  id: string
+  id: string;
   /** 活动图片 */
-  bannerPicture: string
+  bannerPicture: string;
   /** 活动标题 */
-  title: string
+  title: string;
   /** 子类选项 */
-  subTypes: SubTypeItem[]
-}
+  subTypes: SubTypeItem[];
+};
