@@ -100,7 +100,8 @@ const onFullLocationChange: UniHelper.RegionPickerOnChange = (ev) => {
 };
 
 // 点击保存提交表单
-// fullLocationCode后端并没有返回，是自定义的变量，所以在未选择时再次提交三个code参数都是空字符串，会导致地址消失
+// fullLocationCode后端并没有返回，是自定义的变量，且["", "", ""]的每一项默认值都是 "",
+// 所以在未选择时再次提交三个code参数都是空字符串，会导致地址消失
 // 解决方案：值为undefined的参数不会参与提交
 const onSubmit = async () => {
   const { nickname, gender, birthday, profession } = profile.value;
