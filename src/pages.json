@@ -29,6 +29,12 @@
         "enablePullDownRefresh": false
       }
     },
+		{
+			"path": "pages/cart/cart2",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		},
     {
       "path": "pages/mine/mine",
       "style": {
